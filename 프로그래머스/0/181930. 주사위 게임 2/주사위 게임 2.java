@@ -1,17 +1,15 @@
 class Solution {
     public int solution(int a, int b, int c) {
-        int sum = a + b + c;
-        int sumOfSquares = a * a + b * b + c * c;
-        int sumOfCubes = a * a * a + b * b * b + c * c * c;
-
-        if (a == b && b == c) {
-            return sum * sumOfSquares * sumOfCubes;
+        int answer = 0;
+        if (1<=a && a<=6 && 1<=b && b<=6 && 1<=c && c<=6) {
+            if(a != b && b != c && c != a) {
+                answer = a + b + c;
+            } else if ((a == b && b != c) || (a == c && a != b) || (b == c && b != a)) {
+                answer = (a + b + c)*(a*a + b*b + c*c);
+            } else {
+                answer = (a + b + c)*(a*a + b*b + c*c)*(a*a*a + b*b*b + c*c*c);
+            }
         }
-        else if (a == b || b == c || a == c) {
-            return sum * sumOfSquares;
-        }
-        else {
-            return sum;
-        }
+        return answer;
     }
 }
