@@ -1,25 +1,28 @@
-import java.util.HashMap;
 class Solution {
     public int solution(int[] array) {
-        HashMap<Integer, Integer> frequencyMap = new HashMap<>();
+        int answer = 0; //최빈값
+        int[] index = new int[1001];
+        int max = 0; //최댓값
+        int count = 0; //최빈값 개수 
         
-        int maxCount = 0;
-        int mode = -1;
-        boolean isMultiple = false;
+        for (int i = 0; i < array.length; i++) {
+            index[array[i]]++; // [0,1,1,3,1,0,0,0,     ]
+        }
         
-        for(int num : array) {
-            int count = frequencyMap.getOrDefault(num, 0) + 1;
-            
-            frequencyMap.put(num, count);
-            
-            if(count > maxCount) {
-                maxCount = count;
-                mode = num;
-                isMultiple = false;
-            } else if (count == maxCount) {
-                isMultiple = true;
+        for(int j = 0; j < index.length; j++) {
+            if(index[j] > max) {
+                max = index[j]; // i = 1 , 1 i = 2 , 1 i = 3 , 3
+                answer = j; //3
+                count = 1;
+            } else if(index[j] == max) { // 3 i = 3
+                count++; // 0
             }
         }
-        return isMultiple ? -1 : mode;
+        
+        if(count > 1) {
+            return -1;
+        } else {
+            return answer;
+        }
     }
 }
