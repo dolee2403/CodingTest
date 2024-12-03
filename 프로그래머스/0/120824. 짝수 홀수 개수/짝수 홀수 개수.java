@@ -1,15 +1,16 @@
 class Solution {
     public int[] solution(int[] num_list) {
-        int oddCount = 0;
-        int evenCount = 0;
-        for(int num : num_list) {
-            if(num % 2 == 1) {
-                oddCount++;
+        int[] answer = new int[2];
+        int odd = 0;
+        int even = 0;
+        for(int i = 0; i < num_list.length; i++){
+            if(num_list[i] % 2 == 0) {
+                even++;
             } else {
-                evenCount++;
+                odd++;
             }
         }
-        int[] answer = {evenCount, oddCount};
+        answer = new int[]{even, odd};
         return answer;
     }
 }
