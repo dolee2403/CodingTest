@@ -2,17 +2,15 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        int height = 1;
-        int width = 1;
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        
-        for (int i = height; i <= n; i++){
-            for(int j = width; j <= i; j++) {
+        for(int heigth = 1; heigth <= n; heigth++){
+            for(int width = 1; width <= heigth; width++){
                 System.out.print("*");
             }
-            System.out.println();
+            System.out.println("");
         }
-        sc.close();
+
+        
     }
 }
