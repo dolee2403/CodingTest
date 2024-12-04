@@ -1,13 +1,18 @@
-import java.util.Arrays;
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] numbers, int num1, int num2) {
-        int length = numbers.length;
+        List<Integer> list = new ArrayList<>();
         
-        if(0 <= num1 && num1 < length && num1 <= num2 && num2 < length) {
-            return Arrays.copyOfRange(numbers, num1, num2+1);
+        for(int i = num1; i <= num2; i++) {
+            list.add(numbers[i]);
         }
-        else {
-            return new int[0];
+        
+        int[] answer = new int[list.size()];
+        for(int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
         }
+        
+        return answer;
     }
 }
