@@ -1,15 +1,17 @@
 class Solution {
     public String solution(String rsp) {
-        StringBuilder answer = new StringBuilder();
-        for (char c : rsp.toCharArray()) {
-            if(c == '2') {
-                answer.append('0');
-            } else if (c == '0') {
-                answer.append('5');
-            } else if (c == '5') {
-                answer.append('2');
+        String answer = "";
+        for(int i = 0; i < rsp.length(); i++) {
+            char c = rsp.charAt(i);
+            String str = Character.toString(c);
+            if(str.equals("2")) {
+                answer += "0";
+            } else if (str.equals("0")) {
+                answer += "5";
+            } else if (str.equals("5")) {
+                answer += "2";
             }
-        } 
-        return answer.toString();
+        }
+        return answer;
     }
 }
